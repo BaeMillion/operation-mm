@@ -1,16 +1,4 @@
 @font-face {
-  font-family: "Noto Sans";
-  src: url("../fonts/NotoSans-Regular.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Edo SZ";
-  src: url("../fonts/edosz.ttf");
-  font-display: block;
-}
-
-@font-face {
   font-family: "Tamanegi Kaisho Geki";
   src: url("../fonts/玉ねぎ楷書激無料版v7改.ttf");
   font-display: block;

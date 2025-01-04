@@ -1,11 +1,4 @@
 @font-face {
-  font-family: "Edo SZ";
-  src: url("../fonts/edosz.ttf");
-  font-display: block;
-  unicode-range: U+0-22, U+24-29, U+2B-3F, U+41-D6, U+D8-24F;
-}
-
-@font-face {
   font-family: "Tamanegi Kaisho Geki";
   src: url("../fonts/玉ねぎ楷書激無料版v7改.ttf");
   font-display: block;
