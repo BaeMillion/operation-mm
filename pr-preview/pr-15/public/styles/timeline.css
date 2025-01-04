@@ -227,6 +227,7 @@ main {
     "... left marker right ..."
     "... ... marker ... ...";
   column-gap: 2rem;
+  scroll-margin-top: var(--header-height);
 
   .aussie {
     transform: scale(-1);
