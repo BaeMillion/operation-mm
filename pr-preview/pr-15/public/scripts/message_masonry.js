@@ -23,9 +23,7 @@
             fitWidth: true,
             layoutInstant: true,
         });
-        /** @type {PerformanceNavigationTiming} */
-        const navigation = performance.getEntriesByType("navigation")[0];
-        if (location.hash && navigation.type === "navigate") {
+        if (location.hash) {
             document.querySelector(location.hash).scrollIntoView();
         }
     });
