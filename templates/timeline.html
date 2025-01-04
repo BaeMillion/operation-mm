@@ -6,13 +6,17 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
 {%- from "shared/header-nav.html" import nav_head, nav_content -%}
 {%- from "shared/dialog.html" import dialog_head, dialog_content -%}
 {%- block head -%}
+<link href="public/images/BAE1M.jpg" rel="preload" as="image" fetchpriority="high">
+<link href="public/images/baetag-outlined.png" rel="preload" as="image" fetchpriority="high">
+<link href="public/images/squeaks.png" rel="preload" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
   href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@800&display=swap"
   rel="stylesheet">
-{{ nav_head }}
 <link href="public/styles/timeline.css" rel="stylesheet">
+<script src="public/scripts/timeline.js" defer></script>
+{{ nav_head }}
 {{ dialog_head }}
 {%- endblock head -%}
 
@@ -133,9 +137,8 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
     </a>
   </div>
 </main>
-{{ dialog_content }}
 {%- endblock content %}
 
 {%- block body_end %}
-<script src="public/scripts/timeline.js" defer></script>
+{{ dialog_content }}
 {%- endblock body_end %}
