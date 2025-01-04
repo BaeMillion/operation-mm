@@ -1,14 +1,3 @@
-@font-face {
-  font-family: "Haros Baelz";
-  src: url("../fonts/Baefont_normal-Regular_V1.ttf");
-}
-
-@font-face {
-  font-family: "Edo SZ";
-  src: url("../fonts/edosz.ttf");
-  font-display: block;
-}
-
 body:not(.after-click) {
   overflow-y: hidden;
 }
@@ -50,31 +39,30 @@ body:not(.after-click) {
 }
 
 .initial-content {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: default;
+
   .congratulations {
-    position: fixed;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
     white-space: nowrap;
     font-family: 'Edo SZ';
     font-size: 3.5vw;
     color: white;
     text-shadow: 3px 3px 2px black;
-    cursor: default;
   }
 
   .prompt {
-    position: fixed;
-    top: 6vw;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
     color: white;
     font-family: 'Edo SZ';
-    font-size: max(1.25vw, 1.5em);
+    font-size: max(1.5vw, 1em);
     text-shadow: 3px 3px 2px black;
-    cursor: default;
     background-color: rgb(0, 0, 0, 0.5);
-    padding: .25rem .5rem .25rem .25rem;
+    padding: .25rem .5rem;
     border: 3px solid rgba(255, 190, 0, 1);
     box-shadow: 1px 1px black;
   }
@@ -101,7 +89,7 @@ main {
     left: 0;
     right: 0;
     height: 100vh;
-    background: linear-gradient(rgb(255 255 255 / 0.5), rgb(255 255 255 / 0.5));
+    background: linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5));
   }
 
   &.after-click {
@@ -121,10 +109,15 @@ main {
     padding: 1rem;
     border: 5px solid #00144b;
     box-shadow: 2px 1px black;
-    font-family: "Noto Sans", "Noto Sans JP", "Noto Sans KR", sans-serif;
+    font-family: "Noto Sans", sans-serif;
   
     h1, h2 {
       font-family: 'Edo SZ';
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(3.5em, 2.5vw, 4.5em);
     }
   
     h2 {
@@ -133,10 +126,6 @@ main {
   
     &.welcome {
       background-color: rgba(17, 219, 238, 0.75);
-  
-      h1 {
-        font-size: clamp(3.5em, 2.5vw, 4.5em);
-      }
       
       p {
         font-size: clamp(1em, 1vw, 1.75em);
@@ -147,10 +136,6 @@ main {
       background-color: rgba(255, 190, 0, 0.75);
       display: flex;
       flex-direction: column;
-  
-      h1 {
-        font-size: clamp(2.2em, 2.5vw, 4.5em);
-      }
   
       .introduction-video {
         margin: auto 0;
@@ -183,32 +168,23 @@ main {
   }
 }
 
-@media (orientation: portrait) {
+@media (max-width: 1200px) and (orientation: portrait) {
   .initial-content {
+    top: 8vh;
+
     .congratulations {
-      top: 8vh;
       font-size: 4vw;
     }
 
     .prompt {
-      top: 12vh;
-      font-size: 3vw;
-      border: none;
-      box-shadow: none;
-      background-color: initial;
+      font-size: max(3vw, .8em);
+      padding: .15rem .3rem;
+      border: 2px solid rgba(255, 190, 0, 1);
     }
   }
 }
 
-@media (max-width: 1000px) and (orientation: landscape) {
-  .initial-content {
-    .prompt {
-      top: 4rem;
-    }
-  }
-}
-
-@media (max-width: 1300px) or (orientation: portrait) {
+@media (max-width: 1300px) {
   main {
     flex-direction: column;
 
@@ -221,12 +197,6 @@ main {
       
       &.welcome p {
         font-size: 1.35em;
-      }
-  
-      &.introduction {
-        h1 {
-          font-size: 2em;
-        }
       }
     }
   }

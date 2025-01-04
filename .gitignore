@@ -3,3 +3,6 @@
 .lazy.lua
 .DS_Store
 /raw
+/data
+/public/images/messages
+/public/images/timeline

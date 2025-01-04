@@ -1,0 +1,55 @@
+name: Publish preview of PR to GitHub Pages
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+env:
+  CARGO_TERM_COLOR: always
+
+concurrency: preview-${{ github.ref }}
+
+permissions:
+  pages: write      # to deploy to Pages
+  id-token: write   # to verify the deployment originates from an appropriate source
+  contents: write
+  pull-requests: write # to allow adding of comments to PRs by the workflow            
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install minijinja-cli
+        if: github.event.action != 'closed'
+        run: |
+          curl -sSfL https://github.com/mitsuhiko/minijinja/releases/latest/download/minijinja-cli-installer.sh -o install.sh
+          sh install.sh
+          echo "Hello {{ name }}" | minijinja-cli - -Dname=World
+
+      - name: Get latest data
+        id: data_fetch
+        if: github.event.action != 'closed'
+        run: |
+          wget https://data.baemillion.com/latest.tar.gz
+          tar -xvzf latest.tar.gz
+
+      - name: Generate static site
+        id: generation
+        if: github.event.action != 'closed'
+        run: |
+          ./render.sh
+          # Print the contents of the newly generated dist/ directory
+          echo "The following files have been generated:"
+          tree ./dist
+
+      - name: Deploy PR Preview
+        id: deploy
+        uses: rossjrw/pr-preview-action@v1.4.8
+        with:
+          source-dir: ./dist

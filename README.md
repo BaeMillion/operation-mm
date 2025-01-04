@@ -15,6 +15,24 @@ Simply running the Rust code, e.g. `cargo run`, will start up a local server on 
 
 If you add or change any page routes, you have to also change the `page_paths` array in the `build_static` function for the page to be rendered in static generation later.
 
+# Getting a copy of the data
+
+The data lives in and is handled by another repo: https://github.com/BaeMillion/baemillion-data which publishes to `data.baemillion.com`.
+
+An example of how to grab a copy for local development.
+
+```bash
+wget https://data.baemillion.com/latest.tar.gz
+tar -xvzf latest.tar.gz
+```
+
+Or if a `.zip` file is preferred.
+
+```
+wget https://data.baemillion.com/latest.zip
+unzip latest.zip
+```
+
 # Static Site Generation and Deployment
 
 ## Using the Rust setup
@@ -49,31 +67,3 @@ If you want to deploy to Cloudflare Pages, change the `name` value in `wrangler.
 The GitHub Actions workflow found at `.github/workflows/publish.yml` will automatically trigger a run to publish to GitHub Pages whenever commits are pushed to the default branch.
 
 The repo needs to have GitHub Pages enabled with GitHub Actions workflow as the page source. See the instructions here: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow
-
-# Processing data for the site
-
-There are two scripts used for processing CSVs containing Message submissions and Timeline events to be used for the website. The scripts live under `scripts/` and require Python along with two dependencies, `requests` and `pillow`.
-
-## Installing the Python dependencies
-
-Preferably inside a virtualenv run the following.
-
-```
-pip install -r scripts/requirements.txt
-```
-
-## Running the scripts
-
-Both the scripts take three arguments.
-
-```
-python scripts/<script>.py <path to CSV> <path to save images> <path to save JSON data>
-```
-
-So the full commands would look like the following.
-
-```
-python scripts/process_messages.py raw/messages.csv public/images/messages data/messages.json
-
-python scripts/process_timeline.py raw/timeline.csv public/images/timeline data/timeline.json
-```
