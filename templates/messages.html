@@ -74,7 +74,7 @@
         data-full-img="{{msg.media.path}}" data-full-width="{{ msg.media.width }}" data-full-height="{{ msg.media.height }}"
       >
     {% endif -%}
-      <p>{{ msg.message }}</p>
+      <p>{{ msg.message | replace('\n', '<br>') | safe }}</p>
     </div>
   </div>
   {%- endfor %}
