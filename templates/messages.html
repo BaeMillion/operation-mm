@@ -3,12 +3,9 @@
 {% from "shared/header-nav.html" import nav_head, nav_content %}
 {% from "shared/dialog.html" import dialog_head, dialog_content %}
 {% block head -%}
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@800&display=swap" rel="stylesheet">
 {{ nav_head }}
 <link href="public/styles/messages.css" rel="stylesheet">
-<link rel="preload" href="public/fonts/NotoSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="public/fonts/edosz.ttf" as="font" type="font/ttf" crossorigin>
 <!-- Don't preload this because it's a large file for non-essential text that would block the defer scripts from running -->
 <!-- <link rel="preload" href="public/fonts/玉ねぎ楷書激無料版v7改.ttf" as="font" type="font/ttf" crossorigin> -->
 <script src="public/scripts/twemoji@15.1.0.min.js" defer></script>
