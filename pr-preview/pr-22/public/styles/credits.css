@@ -1,0 +1,94 @@
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  font-family: "Noto Sans", sans-serif;
+}
+
+main {
+  background-size: cover;
+  padding: 1rem 2rem;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+    background:
+      linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5)),
+      url("../images/BAE1M.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+
+  >* {
+    margin-bottom: 2rem;
+  }
+}
+
+
+.credits {
+  position: relative;
+  margin-inline: auto;
+  padding: 1rem 2rem;
+  background-color: white;
+  border: 5px solid #00144b;
+  box-shadow: 2px 1px black;
+  font-size: 1.2em;
+  width: min(80vw, 1000pt);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ff144b #00ffff #00ffff #ff144b;
+  }
+
+  >* {
+    position: relative;
+  }
+
+  ul {
+    padding-inline-start: 0;
+  }
+
+  li {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  .video {
+    aspect-ratio: 16 / 9;
+    height: auto;
+    width: 900px;
+    max-width: 100%;
+  }
+}
+
+.bratboard {
+  margin-inline: auto;
+  width: min(80vw, 1000pt);
+}
+
+.egg {
+  font-size: 0.5rem;
+}
+
+.baescii {
+  padding: 1rem;
+  padding-bottom: 0;
+  font-size: 0.8em;
+}
