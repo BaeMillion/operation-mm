@@ -72,6 +72,8 @@ main {
     height: auto;
     width: 1000px;
     max-width: 100%;
+    display: block;
+    margin: 1rem auto 0 auto;
   }
 
   .bigups {
@@ -79,7 +81,7 @@ main {
   }
 
   .bratboard {
-    margin-top: 1rem;
+    margin: 1rem auto 0 auto;
     width: 1000px;
     max-width: 100%;
   }
