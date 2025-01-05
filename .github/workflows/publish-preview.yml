@@ -38,6 +38,8 @@ jobs:
         run: |
           wget https://data.baemillion.com/latest.tar.gz
           tar -xvzf latest.tar.gz
+          echo "Contents of release.txt"
+          cat release.txt
 
       - name: Generate static site
         id: generation
