@@ -5,10 +5,6 @@
   unicode-range: U+0-25B6, U+25B8-FFEF;
 }
 
-body {
-  font-family: "Noto Sans JP", "Noto Sans KR", sans-serif;
-}
-
 .bg {
   background:
     linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5)),
