@@ -5,12 +5,126 @@
 <meta charset="UTF-8">
 <title>Operation MM</title>
 <link href="public/images/squeaks-favicon.png" rel="icon">
-<link href="public/styles/shared/reset.css" rel="stylesheet">
-<link href="public/styles/shared/base.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@800&display=swap" rel="stylesheet">
+&lt;script&gt;
+&#x2f;*
+  Josh&#x27;s Custom CSS Reset
+  https:&#x2f;&#x2f;www.joshwcomeau.com&#x2f;css&#x2f;custom-css-reset&#x2f;
+*&#x2f;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+&lt;&#x2f;script&gt;
+
+&lt;script&gt;
+@font-face {
+  font-family: &quot;Noto Sans&quot;;
+  src: url(&quot;..&#x2f;..&#x2f;fonts&#x2f;NotoSans-Regular.ttf&quot;);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: &quot;Edo SZ&quot;;
+  src: url(&quot;..&#x2f;..&#x2f;fonts&#x2f;edosz.ttf&quot;);
+  font-display: block;
+  unicode-range: U+0-22, U+24-29, U+2B-3F, U+41-D6, U+D8-24F;
+}
+
+body {
+  background-color: #f02017;
+}
+&lt;&#x2f;script&gt;<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Noto+Sans+KR&family=Noto+Serif+KR:wght@800&display=swap" rel="stylesheet">
 <link rel="preload" href="public/fonts/Baefont_normal-Regular_V1.ttf" as="font" type="font/ttf" crossorigin>
 <link href="public/styles/header-nav.css" rel="stylesheet">
+
+&lt;script&gt;
+@font-face {
+  font-family: &quot;Haros Baelz&quot;;
+  src: url(&quot;..&#x2f;fonts&#x2f;Baefont_normal-Regular_V1.ttf&quot;);
+  font-display: swap;
+}
+
+body {
+  --header-height: 4rem;
+}
+
+header {
+  height: var(--header-height);
+  background-color: #f02017;
+  border-bottom: solid 2pt black;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  nav {
+    display: flex;
+    height: 100%;
+    gap: 3rem;
+    padding: 0 2rem;
+    align-items: center;
+
+    a {
+      color: yellow;
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: &quot;Haros Baelz&quot;, sans-serif;
+      text-shadow: 2px 2px black;
+      text-decoration: none;
+
+      &amp;.active {
+        text-decoration: underline;
+      }
+    }
+
+    menu {
+      display: contents;
+
+      li {
+        list-style-type: none;
+
+      }
+    }
+  }
+}
+&lt;&#x2f;script&gt;
+
 
 <link href="public/styles/messages.css" rel="stylesheet">
 <link rel="preload" href="public/fonts/NotoSans-Regular.ttf" as="font" type="font/ttf" crossorigin>
@@ -20,7 +134,199 @@
 <script src="public/scripts/twemoji@15.1.0.min.js" defer></script>
 <script src="public/scripts/masonry.min.js" defer></script>
 
-<link href="public/styles/embed_dialog.css" rel="stylesheet">
+
+&lt;script&gt;
+.video {
+  width: 100%;
+  aspect-ratio: 16&#x2f;9;
+  align-self: center;
+
+  &amp;.placeholder {
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+
+    &amp;&gt;* {
+      grid-area: 1&#x2f;1;
+    }
+
+    play-icon {
+      display: grid;
+      place-items: center;
+
+      &amp;&gt;* {
+        grid-area: 1&#x2f;1;
+      }
+
+      circle {
+        display: block;
+        width: 40pt;
+        height: 40pt;
+        background-color: red;
+        border-radius: 100%;
+      }
+
+      triangle {
+        width: 0;
+        height: 0;
+        border-left: 18pt solid white;
+        border-top: 10pt solid transparent;
+        border-bottom: 10pt solid transparent;
+        translate: 3pt;
+      }
+    }
+  }
+}
+
+.loader-stack {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+
+  .loader {
+    z-index: -1;
+  }
+
+  &gt;* {
+    grid-area: 1&#x2f;1;
+  }
+}
+
+.loader {
+  display: inline-block;
+  font-size: 10px;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  animation: mulShdSpin 1.1s infinite ease;
+  transform: translateZ(0);
+}
+
+@keyframes mulShdSpin {
+
+  0%,
+  100% {
+    box-shadow: 0em -2.6em 0em 0em #ffffff, 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.5), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7);
+  }
+
+  12.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.7), 1.8em -1.8em 0 0em #ffffff, 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5);
+  }
+
+  25% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.5), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.7), 2.5em 0em 0 0em #ffffff, 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  37.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.5), 2.5em 0em 0 0em rgba(255, 255, 255, 0.7), 1.75em 1.75em 0 0em #ffffff, 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.5), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.7), 0em 2.5em 0 0em #ffffff, -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.2), -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  62.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.5), 0em 2.5em 0 0em rgba(255, 255, 255, 0.7), -1.8em 1.8em 0 0em #ffffff, -2.6em 0em 0 0em rgba(255, 255, 255, 0.2), -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  75% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.5), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.7), -2.6em 0em 0 0em #ffffff, -1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2);
+  }
+
+  87.5% {
+    box-shadow: 0em -2.6em 0em 0em rgba(255, 255, 255, 0.2), 1.8em -1.8em 0 0em rgba(255, 255, 255, 0.2), 2.5em 0em 0 0em rgba(255, 255, 255, 0.2), 1.75em 1.75em 0 0em rgba(255, 255, 255, 0.2), 0em 2.5em 0 0em rgba(255, 255, 255, 0.2), -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5), -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
+  }
+}
+
+dialog {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+
+  &amp;[open] {
+    display: flex;
+  }
+
+  &amp;::backdrop {
+    background-color: black;
+    opacity: 0.7;
+  }
+}
+
+.close-box {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  max-height: calc(100vh - 80px - 4rem);
+
+  .dialog-close-button {
+    position: absolute;
+    top: calc(-40px - 1rem);
+    right: 0;
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: white;
+    align-self: flex-end;
+    background-color: gray;
+    border-radius: 100px;
+    border: none;
+    font-family: &quot;Arial&quot;;
+    font-size: 2em;
+    line-height: 1;
+  }
+}
+
+#video-dialog {
+  .video {
+    border: 0;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16&#x2f;9;
+  }
+}
+
+#img-dialog {
+  img {
+    max-width: 100%;
+    max-height: calc(100vh - 80px - 4rem);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .loader-stack {
+    contain: size;
+    height: 100%;
+  }
+
+  .close-box {
+    max-width: 90vw;
+    height: calc(100vh - 80px - 4rem);
+    width: auto;
+  }
+
+  @media(orientation: portrait) {
+    .close-box {
+      height: auto;
+      width: 90vw;
+    }
+  }
+}
+&lt;&#x2f;script&gt;
 <script src="public/scripts/embed_dialog.js" defer></script>
 
 <script src="public/scripts/message_masonry.js" defer></script></head>

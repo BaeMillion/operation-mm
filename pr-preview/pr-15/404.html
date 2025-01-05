@@ -5,10 +5,124 @@
 <meta charset="UTF-8">
 <title>Operation MM</title>
 <link href="public/images/squeaks-favicon.png" rel="icon">
-<link href="public/styles/shared/reset.css" rel="stylesheet">
-<link href="public/styles/shared/base.css" rel="stylesheet">
-<link rel="preload" href="public/fonts/Baefont_normal-Regular_V1.ttf" as="font" type="font/ttf" crossorigin>
+&lt;script&gt;
+&#x2f;*
+  Josh&#x27;s Custom CSS Reset
+  https:&#x2f;&#x2f;www.joshwcomeau.com&#x2f;css&#x2f;custom-css-reset&#x2f;
+*&#x2f;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+&lt;&#x2f;script&gt;
+
+&lt;script&gt;
+@font-face {
+  font-family: &quot;Noto Sans&quot;;
+  src: url(&quot;..&#x2f;..&#x2f;fonts&#x2f;NotoSans-Regular.ttf&quot;);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: &quot;Edo SZ&quot;;
+  src: url(&quot;..&#x2f;..&#x2f;fonts&#x2f;edosz.ttf&quot;);
+  font-display: block;
+  unicode-range: U+0-22, U+24-29, U+2B-3F, U+41-D6, U+D8-24F;
+}
+
+body {
+  background-color: #f02017;
+}
+&lt;&#x2f;script&gt;<link rel="preload" href="public/fonts/Baefont_normal-Regular_V1.ttf" as="font" type="font/ttf" crossorigin>
 <link href="public/styles/header-nav.css" rel="stylesheet">
+
+&lt;script&gt;
+@font-face {
+  font-family: &quot;Haros Baelz&quot;;
+  src: url(&quot;..&#x2f;fonts&#x2f;Baefont_normal-Regular_V1.ttf&quot;);
+  font-display: swap;
+}
+
+body {
+  --header-height: 4rem;
+}
+
+header {
+  height: var(--header-height);
+  background-color: #f02017;
+  border-bottom: solid 2pt black;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+
+  nav {
+    display: flex;
+    height: 100%;
+    gap: 3rem;
+    padding: 0 2rem;
+    align-items: center;
+
+    a {
+      color: yellow;
+      font-size: 2rem;
+      font-weight: 800;
+      font-family: &quot;Haros Baelz&quot;, sans-serif;
+      text-shadow: 2px 2px black;
+      text-decoration: none;
+
+      &amp;.active {
+        text-decoration: underline;
+      }
+    }
+
+    menu {
+      display: contents;
+
+      li {
+        list-style-type: none;
+
+      }
+    }
+  }
+}
+&lt;&#x2f;script&gt;
+
 
 <link href="public/styles/404.css" rel="stylesheet"></head>
 
