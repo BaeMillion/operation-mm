@@ -89,6 +89,10 @@ main {
 
 .egg {
   font-size: 0.5rem;
+
+  .oh-hi {
+    cursor: pointer;
+  }
 }
 
 .baescii {
