@@ -26,20 +26,17 @@ main {
   }
 
   >* {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 }
 
-
 .credits {
   position: relative;
-  margin-inline: auto;
   padding: 1rem 2rem;
   background-color: white;
   border: 5px solid #00144b;
   box-shadow: 2px 1px black;
   font-size: 1.2em;
-  width: min(80vw, 1000pt);
 
   &::before {
     content: "";
@@ -73,22 +70,57 @@ main {
   .video {
     aspect-ratio: 16 / 9;
     height: auto;
-    width: 900px;
+    width: 1000px;
+    max-width: 100%;
+    display: block;
+    margin: 1rem auto 0 auto;
+  }
+
+  .bigups {
+    cursor: pointer;
+  }
+
+  .bratboard {
+    margin: 1rem auto 0 auto;
+    width: 1000px;
     max-width: 100%;
   }
 }
 
-.bratboard {
-  margin-inline: auto;
-  width: min(80vw, 1000pt);
-}
-
 .egg {
   font-size: 0.5rem;
+
+  .oh-hi {
+    cursor: pointer;
+  }
 }
 
 .baescii {
   padding: 1rem;
   padding-bottom: 0;
   font-size: 0.8em;
+}
+
+@media (min-width: 1300px) {
+  main {
+    .left, .right {
+      width: calc(50% - .5rem);
+  
+      .credits:not(:last-child) {
+        margin-bottom: .5rem;
+      }
+    }
+
+    .left {
+      float: left;
+    }
+  
+    .right {
+      float: right;
+    }
+
+    .credits.afterword {
+      margin-right: 1rem;
+    }
+  }
 }
