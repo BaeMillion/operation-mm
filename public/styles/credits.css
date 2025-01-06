@@ -74,6 +74,7 @@ main {
     max-width: 100%;
     display: block;
     margin: 1rem auto 0 auto;
+    border: 1px solid black;
   }
 
   .bigups {
@@ -103,9 +104,11 @@ main {
 
 @media (min-width: 1300px) {
   main {
-    .left, .right {
+
+    .left,
+    .right {
       width: calc(50% - .5rem);
-  
+
       .credits:not(:last-child) {
         margin-bottom: .5rem;
       }
@@ -114,7 +117,7 @@ main {
     .left {
       float: left;
     }
-  
+
     .right {
       float: right;
     }
