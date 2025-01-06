@@ -2,6 +2,7 @@
   font-family: "Tamanegi Kaisho Geki";
   src: url("../fonts/玉ねぎ楷書激無料版v7改.ttf");
   font-display: block;
+  unicode-range: U+0-51CD, U+51DD-FFEF
 }
 
 body {
@@ -117,8 +118,7 @@ img.emoji {
     top: 10px;
     margin-right: 2rem;
     grid-area: 2 / 2;
-    font-family: "Edo SZ", "Tamanegi Kaisho Geki", "Noto Serif KR", serif;
-    font-size: 0.83em;
+    font-family: "Edo SZ", "Tamanegi Kaisho Geki", "Noto Serif JP", "Noto Serif KR", serif;
 
     >div {
       position: relative;
