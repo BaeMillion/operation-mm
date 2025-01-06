@@ -1,49 +1,69 @@
 body:not(.after-click) {
   overflow-y: hidden;
+  cursor: pointer;
 }
 
-.navbar {
-  z-index: 100;
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: var(--header-height) auto 1fr;
+}
+
+bg {
+  display: block;
   position: fixed;
   top: 0;
-  margin-top: calc(var(--header-height) * -1);
-  width: 100%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: no-repeat center / cover url("../images/BAE1M.jpg");
+  translate: 0;
+  z-index: -1;
 
-  &.after-click {
-    margin-top: 0;
-    transition: margin .4s linear;
+  .after-click & {
+    translate: 0 var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transition: translate .4s linear, height .4s linear;
   }
 }
 
-.content {
-  &::before {
-    z-index: -1;
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background: center / cover url("../images/BAE1M.jpg");
+bg-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5) calc(100vh - var(--header-height)), rgb(255 255 255 / 0.5));
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  translate: 0;
+
+  .after-click & {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 var(--header-height);
+    transition: opacity .5s linear, translate .4s linear;
   }
+}
 
-  &.after-click {
-    margin-top: var(--header-height);
-    transition: margin .4s linear;
+main,
+header {
+  translate: 0 calc(var(--header-height) * -1);
 
-    &::before {
-      margin-top: calc(var(--header-height) / 2);
-      transition: margin .4s linear;
-    }
+  .after-click & {
+    translate: 0;
+    transition: translate .4s linear;
   }
 }
 
 .initial-content {
-  position: fixed;
-  top: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: default;
+  grid-area: 2 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
 
   .congratulations {
     white-space: nowrap;
@@ -54,9 +74,6 @@ body:not(.after-click) {
   }
 
   .prompt {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     color: white;
     font-family: 'Edo SZ';
     font-size: max(1.5vw, 1em);
@@ -67,7 +84,7 @@ body:not(.after-click) {
     box-shadow: 1px 1px black;
   }
 
-  &.after-click {
+  .after-click & {
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s .5s, opacity .5s linear;
@@ -75,32 +92,18 @@ body:not(.after-click) {
 }
 
 main {
+  grid-area: 2 / 1;
   visibility: hidden;
   opacity: 0;
   height: 100%;
   padding: 2rem;
   display: flex;
+  position: relative;
 
-  &::before {
-    z-index: -1;
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100vh;
-    background: linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5));
-  }
-
-  &.after-click {
+  .after-click & {
     visibility: visible;
     opacity: 1;
-    transition: opacity .5s linear;
-
-    &::before {
-      margin-top: var(--header-height);
-      transition: margin .4s linear;
-    }
+    transition: opacity .5s linear, translate .4s linear;
   }
 
   .block {
@@ -150,7 +153,7 @@ main {
 
 @media (max-width: 1200px) and (orientation: portrait) {
   .initial-content {
-    top: 8vh;
+    padding-top: 4vh;
 
     .congratulations {
       font-size: 4vw;
