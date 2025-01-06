@@ -55,7 +55,7 @@ img.emoji {
   scroll-margin-top: var(--header-height);
   margin-bottom: 3rem;
   width: var(--message-width);
-  font-family: "Noto Sans", "Noto Sans JP", "Noto Sans KR", sans-serif;
+  font-family: "Noto Sans", "Noto Sans JP", "Noto Sans KR", "Noto Sans Canadian Aboriginal", sans-serif;
 
   .sender-name {
     position: relative;
