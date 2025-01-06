@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>CongRATS on BaeMillion</title>
+<link href="public/images/squeaks-favicon.png" rel="icon">
+<link href="public/styles/shared/reset.css" rel="stylesheet">
+<link href="public/styles/shared/base.css" rel="stylesheet">
+<link rel="preload" href="public/fonts/Baefont_normal-Regular_V1.ttf" as="font" type="font/ttf" crossorigin>
+<link href="public/styles/header-nav.css" rel="stylesheet">
+
+<link href="public/styles/home.css" rel="stylesheet">
+
+<script type="text/javascript">
+  let site_opened = false;
+
+  document.addEventListener('click', () => {
+    openSite();
+  }, true);
+
+  function openSite() {
+    if (site_opened) {
+      return;
+    }
+
+    site_opened = true;
+
+    const elements = document.getElementsByClassName('react-after-click');
+    for (let element of elements) {
+      element.classList.add('after-click');
+    }
+
+    document.body.classList.add('after-click');
+  }
+</script></head>
+
+<body><div class="above-fold">
+  <div class="navbar react-after-click">
+    
+<header>
+  <nav aria-label="Site navigation">
+    <menu>
+      <li><a  class="active"href="index.html">Home</a></li>
+      <li><a href="messages.html">Messages</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="credits.html">Credits</a></li>
+    </menu>
+  </nav>
+</header>
+
+  </div>
+  <div class="content react-after-click">
+    <div class="initial-content react-after-click">
+      <div class="congratulations">
+        CONGRATULATIONS ON 1 MILLION SUBSCRIBERS BAE!
+      </div>
+      <div class="prompt">
+        Click anywhere to continue
+      </div>
+    </div>
+    <main class="react-after-click">
+      <div class="block welcome">
+        <h1>WAZZUP!</h1>
+        <h2>Welcome to the BaeMillion website!</h3>
+        <br/>
+        <p>And congratulations to you, Bae, for achieving one million subscribers!</p>
+        <br/>
+        <p>A bunch of talented, passionate and determined Brats came together to create this site to celebrate because we all love and respect our adorkable oshi so much.</p>
+        <br/<>
+        <p>You'll find messages from fellow Brats who want to congratulate you for this huge milestone, as well as a special timeline to look back on your journey so far. From your debut in 2021 to your stream right now with FriendTaro, it has all of your biggest moments. We've worked very hard to make this a reality so we hope you like it! </p>
+        <br/>
+        <p>So sit back and relax. Get your sandwiches, soups, and coffee, and have fun browsing our special website dedicated to the best Rat Idol. She is Chaos, the End of ends, the Steel Rose trapped in a cage of ice, our best friend Baelz Hakos from Hololive English Promise! WITNESS HER!</p>
+        <br/>
+        <p>But before you do, allow us to introduce ourselves!</p>
+      </div>
+      <div class="block introduction">
+        <h1>OUR INTRODUCTION!</h1>
+        <h2>(SOUND ON)</h2>
+        <br/>
+        <div class="introduction-video">
+          <div class="video-container react-after-click">
+            <iframe class="video" src="https://www.youtube.com/embed/k8_-5hQvYqc?rel=0?rel=0" frameborder="0"></iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div></body>
+</html>
