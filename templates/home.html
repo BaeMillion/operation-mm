@@ -1,4 +1,5 @@
 {% extends "shared/base.html" %}
+{% set page_current = "/home" -%}
 {% from "shared/header-nav.html" import nav_head, nav_content %}
 {% block head -%}
 {{nav_head}}
@@ -30,7 +31,6 @@
 
 {% block content -%}
 <div class="above-fold">
-  {% set page_current = "/home" -%}
   <div class="navbar react-after-click">
     {{nav_content}}
   </div>
