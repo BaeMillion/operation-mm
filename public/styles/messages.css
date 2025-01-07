@@ -2,7 +2,7 @@
   font-family: "Tamanegi Kaisho Geki";
   src: url("../fonts/玉ねぎ楷書激無料版v7改.ttf");
   font-display: block;
-  unicode-range: U+0-51CD, U+51DD-FFEF
+  unicode-range: U+0-2642, U+266A-51CD, U+51DD-FFEF
 }
 
 body {
