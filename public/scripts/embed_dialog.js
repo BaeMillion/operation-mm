@@ -131,4 +131,11 @@
             el.addEventListener("click", handle_img_click);
         }
     };
+
+    /**
+     * For the Timeline page.
+     * */
+    for (const el of document.querySelectorAll(".event-img")) {
+        el.addEventListener("click", handle_img_click);
+    }
 }
