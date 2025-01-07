@@ -35,7 +35,7 @@
   }, 500);
 </script>
 <template id="messages-template" data-charset-sans-jp="{{charset_sans_jp}}" data-charset-sans-kr="{{charset_sans_kr}}">
-  {% for msg in messages -%}
+  {% for msg in messages %}
   <div class="msg" id="msg-{{ msg.id }}">
     <msg-content-bg></msg-content-bg>
     <msg-decals class="decal-{{msg.decal_variant}}"></msg-decals>
@@ -52,11 +52,11 @@
     </div>
     {% endif %}
     <div class="msg-content">
-    {% if msg.media.type is startingwith "YouTube" -%}
+    {%- if msg.media.type is startingwith "YouTube" %}
       <div class="video placeholder" data-video_id="{{ msg.media.video_id }}"
-        {% if msg.media.type == "YouTubeClip" -%}
+        {%- if msg.media.type == "YouTubeClip" %}
         data-clip_id="{{ msg.media.clip_id }}" data-clipt="{{ msg.media.clipt }}"
-        {% endif -%}
+        {%- endif -%}
       >
         <img src="{{ msg.media.path }}" loading="lazy" width="{{ msg.media.width }}" height="{{ msg.media.height }}">
         <play-icon>
@@ -64,7 +64,7 @@
           <triangle></triangle>
         </play-icon>
       </div>
-    {% elif msg.media.path -%}
+    {% elif msg.media.path %}
       <img class="msg-img" loading="lazy"
         {% if msg.media.thumbnail -%}
         src="{{ msg.media.thumbnail.path }}" width="{{ msg.media.thumbnail.width }}" height="{{ msg.media.thumbnail.height }}"
@@ -73,7 +73,7 @@
         {% endif -%}
         data-full-img="{{msg.media.path}}" data-full-width="{{ msg.media.width }}" data-full-height="{{ msg.media.height }}"
       >
-    {% endif -%}
+    {%- endif %}
       <p>{{ msg.message }}</p>
     </div>
   </div>
