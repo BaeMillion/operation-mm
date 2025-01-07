@@ -110,16 +110,41 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
       {%- endif %}
       {%- if event.media.path and event.media.width and event.media.height %}
         {%- if event.media.is_youtube and event.media.video_id %}
-        <div class="video placeholder" data-video_id="{{event.media.video_id}}" {%- if event.media.video_start -%}data-video_start="{{event.media.video_start}}"{%- endif -%}>
-          <img src="{{ event.media.path }}" loading="lazy" width="{{ event.media.width }}" height="{{ event.media.height }}" {{ placeholder_img(event.media.placeholder) }}>
+        <div class="video placeholder"
+          data-video_id="{{event.media.video_id}}"
+          {%- if event.media.video_start %}
+          data-video_start="{{event.media.video_start}}"
+          {%- endif %}
+        >
+          <img loading="lazy"
+            src="{{ event.media.path }}"
+            width="{{ event.media.width }}"
+            height="{{ event.media.height }}"
+            {{ placeholder_img(event.media.placeholder) }}
+          >
           <play-icon>
             <circle></circle>
             <triangle></triangle>
           </play-icon>
         </div>
+        {%- elif event.media.path == event.media.link %}
+        <img class="event-img" loading="lazy"
+          src="{{ event.media.path }}"
+          width="{{ event.media.width }}"
+          height="{{ event.media.height }}"
+          data-full-img="{{ event.media.path }}"
+          data-full-width="{{ event.media.width }}"
+          data-full-height="{{ event.media.height }}"
+          {{ placeholder_img(event.media.placeholder) }}
+        >
         {%- else %}
         <a href="{{ event.media.link }}" target="_blank">
-          <img src="{{ event.media.path }}" loading="lazy" width="{{ event.media.width }}" height="{{ event.media.height }}" {{ placeholder_img(event.media.placeholder) }}>
+          <img loading="lazy"
+            src="{{ event.media.path }}"
+            width="{{ event.media.width }}"
+            height="{{ event.media.height }}"
+            {{ placeholder_img(event.media.placeholder) }}
+          >
         </a>
         {%- endif %}
       {%- endif %}

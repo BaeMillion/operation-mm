@@ -272,6 +272,10 @@ main {
         border-color: #ff144b #00ffff #00ffff #ff144b;
       }
     }
+
+    .event-img {
+      cursor: pointer;
+    }
   }
 
   .timeline__marker {
