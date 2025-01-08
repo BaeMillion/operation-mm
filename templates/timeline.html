@@ -89,11 +89,11 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
           {%- endif %}
           {%- for name in event.collabed_with %}
             {%- if loop.last and collab_num > 1 %}
-            <li>and {{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }}</li>
+            <li>and {{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") | safe }}</li>
             {%- elif collab_num > 2 %}
-            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }},</li>
+            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") | safe }},</li>
             {%- else %}
-            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }}</li>
+            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") | safe }}</li>
             {%- endif %}
           {%- endfor -%}
             .
