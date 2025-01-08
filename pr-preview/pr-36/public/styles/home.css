@@ -1,0 +1,193 @@
+body:not(.after-click) {
+  overflow-y: hidden;
+  cursor: pointer;
+}
+
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: var(--header-height) auto 1fr;
+}
+
+bg {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: no-repeat center / cover url("../images/BAE1M.jpg");
+  translate: 0;
+  z-index: -1;
+
+  .after-click & {
+    translate: 0 var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transition: translate .4s linear, height .4s linear;
+  }
+}
+
+bg-overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgb(205 205 205 / 0.5), rgb(255 255 255 / 0.5) calc(100vh - var(--header-height)), rgb(255 255 255 / 0.5));
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  translate: 0;
+
+  .after-click & {
+    visibility: visible;
+    opacity: 1;
+    translate: 0 var(--header-height);
+    transition: opacity .5s linear, translate .4s linear;
+  }
+}
+
+main,
+header {
+  translate: 0 calc(var(--header-height) * -1);
+
+  .after-click & {
+    translate: 0;
+    transition: translate .4s linear;
+  }
+}
+
+.initial-content {
+  grid-area: 2 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 1;
+
+  .congratulations {
+    white-space: nowrap;
+    font-family: 'Edo SZ';
+    font-size: 3.5vw;
+    color: white;
+    text-shadow: 3px 3px 2px black;
+  }
+
+  .prompt {
+    color: white;
+    font-family: 'Edo SZ';
+    font-size: max(1.5vw, 1em);
+    text-shadow: 3px 3px 2px black;
+    background-color: rgb(0, 0, 0, 0.5);
+    padding: .25rem .5rem;
+    border: 3px solid rgba(255, 190, 0, 1);
+    box-shadow: 1px 1px black;
+  }
+
+  .after-click & {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .5s, opacity .5s linear;
+  }
+}
+
+main {
+  grid-area: 2 / 1;
+  visibility: hidden;
+  opacity: 0;
+  height: 100%;
+  padding: 2rem;
+  display: flex;
+  position: relative;
+
+  .after-click & {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s linear, translate .4s linear;
+  }
+
+  .block {
+    flex: 1;
+    margin: 0 .5rem;
+    padding: 1rem;
+    border: 5px solid #00144b;
+    box-shadow: 2px 1px black;
+    font-family: "Noto Sans", sans-serif;
+
+    h1,
+    h2 {
+      font-family: 'Edo SZ';
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: clamp(3.5em, 2.5vw, 4.5em);
+    }
+
+    h2 {
+      font-size: 1.75em;
+    }
+
+    &.welcome {
+      background-color: rgba(17, 219, 238, 0.75);
+
+      p {
+        font-size: clamp(1em, 1vw, 1.75em);
+      }
+    }
+
+    &.introduction {
+      background-color: rgba(255, 190, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+
+      .video {
+        margin: 0 auto;
+        width: 85%;
+        aspect-ratio: 16 / 9;
+        border: 1px solid black;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) and (orientation: portrait) {
+  .initial-content {
+    padding-top: 4vh;
+
+    .congratulations {
+      font-size: 4vw;
+    }
+
+    .prompt {
+      font-size: max(3vw, .8em);
+      padding: .15rem .3rem;
+      border: 2px solid rgba(255, 190, 0, 1);
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  main {
+    flex-direction: column;
+
+    .block {
+      margin: 0;
+
+      &:not(:last-child) {
+        margin-bottom: .5rem;
+      }
+
+      &.welcome p {
+        font-size: 1.35em;
+      }
+    }
+  }
+}
+
+@media (max-width: 1800px) {
+  main .block.introduction .video {
+    width: 100%;
+    margin: 0;
+  }
+}
