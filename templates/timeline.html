@@ -73,10 +73,10 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
           <span>{{ event.date }}</span>
         </div>
         <div class="timeline__text chaos_border chaos_angle">
-          <div class="timeline__title">{{ event.title | replace("Friendtaro", "<a href='/friendtaro'>Friendtaro</a>") | safe }}</div>
+          <div class="timeline__title">{{ event.title | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") | safe }}</div>
 
           {%- if event.subtitle %}
-          <p class="timeline__subtitle">{{ event.subtitle | replace("Friendtaro", "<a href='/friendtaro'>Friendtaro</a>") | safe }}</p>
+          <p class="timeline__subtitle">{{ event.subtitle | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") | safe }}</p>
           {%- endif %}
 
           {%- if event.collabed_with -%}
@@ -89,11 +89,11 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
           {%- endif %}
           {%- for name in event.collabed_with %}
             {%- if loop.last and collab_num > 1 %}
-            <li>and {{ name }}</li>
+            <li>and {{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }}</li>
             {%- elif collab_num > 2 %}
-            <li>{{ name }},</li>
+            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }},</li>
             {%- else %}
-            <li>{{ name }}</li>
+            <li>{{ name | replace("Friendtaro", "<a href='/friendtaro' target='_blank'>Friendtaro</a>") }}</li>
             {%- endif %}
           {%- endfor -%}
             .
