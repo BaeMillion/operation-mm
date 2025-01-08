@@ -73,10 +73,10 @@ style="background-size: cover; background-repeat: no-repeat; background-image: u
           <span>{{ event.date }}</span>
         </div>
         <div class="timeline__text chaos_border chaos_angle">
-          <div class="timeline__title">{{ event.title | safe }}</div>
+          <div class="timeline__title">{{ event.title | replace("Friendtaro", "<a href='/friendtaro'>Friendtaro</a>") | safe }}</div>
 
           {%- if event.subtitle %}
-          <p class="timeline__subtitle">{{ event.subtitle | safe }}</p>
+          <p class="timeline__subtitle">{{ event.subtitle | replace("Friendtaro", "<a href='/friendtaro'>Friendtaro</a>") | safe }}</p>
           {%- endif %}
 
           {%- if event.collabed_with -%}
