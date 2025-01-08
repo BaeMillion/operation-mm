@@ -1,0 +1,16 @@
+{% extends "shared/base.html" %}
+{% from "shared/header-nav.html" import nav_head, nav_content %}
+{% block head -%}
+{{ nav_head }}
+<link href="public/styles/friendtaro.css" rel="stylesheet">
+{%- endblock head %}
+
+{% block content -%}
+{{ nav_content }}
+<div class="bg"></div>
+<main>
+  <div class="img-container">
+    <img src="public/images/friendtarojwong.png" width="3635" height="3095">
+  </div>
+</main>
+{%- endblock content %}
